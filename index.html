@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Disha ❤️</title>
+
+<style>
+body {
+    margin:0;
+    padding:0;
+    background:linear-gradient(-45deg,#8f2dff,#b266ff,#c77dff,#e0aaff);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+    font-family: 'Comic Sans MS', cursive;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+@keyframes bgMove {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* floating hearts */
+.heart{
+    position:fixed;
+    color:#ffb3ff;
+    font-size:20px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* screen sections */
+.screen{
+    display:none;
+    padding:30px;
+    max-width:900px;
+    animation:fadeIn 1s ease;
+}
+
+.active{display:block;}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(0.95);}
+    to{opacity:1;transform:scale(1);}
+}
+
+img{
+    max-width:80%;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0 0 30px #fff;
+    animation:zoom 2s ease;
+}
+
+@keyframes zoom{
+    from{transform:scale(0.9);}
+    to{transform:scale(1);}
+}
+
+button{
+    padding:15px 30px;
+    font-size:22px;
+    border:none;
+    border-radius:30px;
+    margin:20px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#00ff88;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 10px #00ff88;}
+    50%{box-shadow:0 0 25px #00ff88;}
+    100%{box-shadow:0 0 10px #00ff88;}
+}
+
+.no{
+    background:red;
+    position:absolute;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.bigtext{
+    font-size:28px;
+    line-height:1.6;
+    text-shadow:0 0 10px white;
+}
+
+input{
+    padding:12px;
+    font-size:22px;
+    border-radius:12px;
+    border:none;
+    text-align:center;
+}
+
+.glow{
+    font-size:36px;
+    text-shadow:0 0 15px #fff, 0 0 30px #ffccff;
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- PASSWORD SCREEN -->
+<div id="password1" class="screen active">
+<h2 class="glow">Enter Password (CAPS ONLY)</h2>
+<input type="text" id="pass1">
+<br>
+<button onclick="checkPass1()">Submit</button>
+<p id="passmsg1"></p>
+</div>
+
+<div id="password2" class="screen">
+<h2 class="glow">Thoda tamij tahjib… may be hone wale mohabbat hai aapke chaliye password ke sath JI lagaiye 😏</h2>
+<input type="text" id="pass2">
+<br>
+<button onclick="checkPass2()">Submit</button>
+<p id="passmsg2"></p>
+</div>
+
+<!-- MESSAGE -->
+<div id="message" class="screen">
+<h1 class="glow">Before everything I have to say something to u first...</h1>
+
+<p class="bigtext">
+I didn't fall in love with u at once. It happened slowly.  
+Slowly in the night when we first had a conversation.  
+Quietly in the morning when we barely spoke.  
+
+In the way you scolded me, cared for me, stood by held me in your arms   
+Even from 65 kilometres away.  
+
+Shared meals on video calls, jokes, laughter, spicy talks.  
+Long days ending on the conversation WITH PAKDO MUJHE PICHE SE 😌  
+
+Even boring days felt better with you.  
+Somewhere between simple moments… my heart understood what my mind didnt said it out loud  —  
+<b>This was love.</b>  
+
+❤️ SARANGHAE DISHA ❤️
+</p>
+
+<button onclick="startSlideshow()">NEXT</button>
+</div>
+
+<!-- SLIDESHOW -->
+<div id="slideshow" class="screen">
+<h1 id="caption" class="glow"></h1>
+<img id="photo">
+</div>
+
+<!-- PROPOSAL -->
+<div id="proposal" class="screen">
+<h1 class="glow">To kya khayal hai…</h1>
+
+<p class="bigtext">
+After all ups and downs will you be my Valentine ❤️  
+and make my life hell of an adventure and also an ADVENTUROUS HELL JIWAN NARAK BANA DO HAMARA 😌  
+I'm ready to increase my BP PATAM KE PHOD DU APNA SAR NOCH LU APNE BAAL ETC because of your HARKAT 😭  
+SO WHAT DO U SAY?
+</p>
+
+<h2>Try saying NO 4 times 😏</h2>
+
+<button class="yes" onclick="yesClicked()">YES</button>
+<button class="no" id="noBtn" onclick="noClicked()">NO</button>
+</div>
+
+<!-- CONGRATS -->
+<div id="congrats" class="screen">
+<h1 class="glow">CONGRATULATIONS 🎉</h1>
+
+<p class="bigtext">
+YOU GOT YOURSELF A LADKA WHO HAS<br>
+- GHATHIYA HARKAT<br>
+- NICH HARKAT<br>
+- GIRI HUI HARKAT<br><br>
+- A A LADKA WHO IS <br><br>
+- NICH <br><br>
+-GHATHIYA<br><br>
+-BAKCHOD HO KYA <br><br>
+BUT...<br>
+HE LOVES U ❤️<br>
+HE CARE FOR U ❤️<br>
+HE'LL ALWAYS BE THERE FOR U ❤️<br>
+WHEN THERE WILL BE NO ONE TO LOVE YOU I'LL BE THE LAST PERSON STANDING LOVING YOU DEEPLY
+</p>
+
+<button onclick="finalScreen()">NEXT</button>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="screen">
+<h1 class="glow">AB KYA DIN BHAR AISE BAITHE RAHOGI 😌</h1>
+<h2 class="glow">LADKA WAIT KAR RAHA HAI CALL KARO USE 📞</h2>
+</div>
+
+<script>
+// ================= MUSIC FIX =================
+let musicStarted=false;
+document.body.addEventListener("click",()=>{
+    if(!musicStarted){
+        let audio=document.getElementById("bgMusic");
+        audio.play().catch(err=>console.log("Music blocked:",err));
+        musicStarted=true;
+    }
+},{once:true});
+// ==========================================
+
+// floating hearts generator
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+},500);
+
+// PASSWORD LOGIC
+function checkPass1(){
+    let p=document.getElementById("pass1").value;
+    if(p==="SERIOUSLY"){
+        document.getElementById("password1").classList.remove("active");
+        document.getElementById("password2").classList.add("active");
+    }else{
+        document.getElementById("passmsg1").innerHTML="Galat password 😒";
+    }
+}
+
+function checkPass2(){
+    let p=document.getElementById("pass2").value;
+    if(p==="SERIOUSLY JI"){
+        document.getElementById("password2").classList.remove("active");
+        document.getElementById("message").classList.add("active");
+    }else{
+        document.getElementById("passmsg2").innerHTML="Galat password 😒";
+    }
+}
+
+// SLIDESHOW
+let slides=[
+{img:"funny.jpg",text:"You look like this 😜"},
+{img:"her1.jpg",text:"Sorry sorry… you look like thiiiiiis 😍"},
+{img:"her2.jpg",text:"You look like this too 😌"},
+{img:"her3.jpg",text:"This one is my favourite 😎"},
+{img:"me1.jpg",text:"After that… I look like this 😎"},
+{img:"me2.jpg",text:"I know I’m handsome 🙈"},
+{img:"couple1.jpg",text:"And together…"},
+{img:"couple2.jpg",text:"We look like this ❤️"},
+{img:"couple3.jpg",text:""},
+{img:"couple4.jpg",text:""}
+];
+
+let i=0;
+function startSlideshow(){
+    document.getElementById("message").classList.remove("active");
+    document.getElementById("slideshow").classList.add("active");
+    nextSlide();
+}
+
+function nextSlide(){
+    if(i<slides.length){
+        document.getElementById("photo").src=slides[i].img;
+        document.getElementById("caption").innerHTML=slides[i].text;
+        i++;
+        setTimeout(nextSlide,3000);
+    }else{
+        document.getElementById("slideshow").classList.remove("active");
+        document.getElementById("proposal").classList.add("active");
+    }
+}
+
+// PROPOSAL LOGIC
+let noCount=0;
+function noClicked(){
+    noCount++;
+    let btn=document.getElementById("noBtn");
+    if(noCount<4){
+        btn.style.top=Math.random()*70+"%";
+        btn.style.left=Math.random()*70+"%";
+    }else{
+        alert("BOMBOLENE KHILAUNGA BANARAS GHUMAUNGA SAR DABAUNGA MAAR BHI KHAUNGA  AB TO MAAN JA 🥺");
+    }
+}
+
+function yesClicked(){
+    alert("She said YESSSS ❤️🔥");
+    document.getElementById("proposal").classList.remove("active");
+    document.getElementById("congrats").classList.add("active");
+}
+
+function finalScreen(){
+    document.getElementById("congrats").classList.remove("active");
+    document.getElementById("final").classList.add("active");
+}
+</script>
+
+</body>
+</html>
